@@ -38,7 +38,7 @@ montante = (capital * math.pow((1 + taxa_fii), meses) + (aporte * meses))
 variacao = random.uniform(-0.03, 0.03) 
 valor_final = montante * (1 + variacao)
 
-
+#FII - SIMUlACOES
 variacao_1= random.uniform(-0.03,0.03)
 variacao_2= random.uniform(-0.03,0.03)
 variacao_3= random.uniform(-0.03,0.03)
@@ -111,7 +111,7 @@ print("cdb", graf_cdb)
 print("lci", graf_lci)
 print("poupança: ", graf_poup)
 print("FII", graf_FII)
-#FII - SIMUlACOES
+
 
 
 
