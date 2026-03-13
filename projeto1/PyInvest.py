@@ -6,12 +6,12 @@ import locale
 
 locale.setlocale(locale.LC_ALL,'pt_BR.UTF-8')
 #entradas
-capital=float(input('capital inicial'))
+capital= float(input('capital inicial'))
 aporte= float(input('aporte inicial'))
 meses= int(input('prazo(meses)'))
 cdi_anual= float(input('CDI anual(%)'))/100
 perc_cdb= float(input('percentual do CDI(%)'))/100
-perc_lci=float(input('percentualdoLCI(%)'))/100
+perc_lci=float(input('percentual do LCI(%)'))/100
 taxa_fii= float(input('rentabilidade mensal FII(%)'))/100
 meta= float(input('meta financeira(R$)'))
 #conversao_CDI
@@ -19,26 +19,28 @@ cdi_mensal = math.pow((cdi_anual),1/12) -1
 
 
 #TOTAL investido
-total_ivestido = capital + (aporte * meses)
+total_investido= capital + (aporte * meses)
 
 #CDB
 taxa_cdb = cdi_mensal * perc_cdb
-montante_cdb =(capital * math.pow(1 + taxa_cdb),meses) + (aporte * meses)
-lucro_cdb= montante_cdb - total_ivestido
-montante_cdb_liquido = total_ivestido + (lucro_cdb *0.85)
+montante_cdb =(capital * math.pow((1 + taxa_cdb),meses) + (aporte * meses))
+lucro_cdb= montante_cdb - total_investido
+montante_cdb_liquido = total_investido + (lucro_cdb *0.85)
 
 #LCI
 taxa_lci = cdi_mensal * perc_lci
-montante_lci = (capital * math.pow ( 1 + taxa_lci), meses) + (aporte+ meses)
+montante_lci = (capital * math.pow((1 + taxa_lci), meses) + (aporte * meses))
 
 #poupanca
 taxa_poupanca= 0.005
-montante_poupanCa = (capital * math.pow(1 + taxa_poupanca), meses) + (aporte * meses)
+montante_poupanca = (capital * math.pow((1 + taxa_poupanca), meses) + (aporte * meses))
+
+#FII - SIMUlACOES
 montante = (capital * math.pow((1 + taxa_fii), meses) + (aporte * meses))
 variacao = random.uniform(-0.03, 0.03) 
 valor_final = montante * (1 + variacao)
 
-#FII - SIMUlACOES
+
 variacao_1= random.uniform(-0.03,0.03)
 variacao_2= random.uniform(-0.03,0.03)
 variacao_3= random.uniform(-0.03,0.03)
@@ -111,8 +113,3 @@ print("cdb", graf_cdb)
 print("lci", graf_lci)
 print("poupança: ", graf_poup)
 print("FII", graf_FII)
-
-
-
-
-
